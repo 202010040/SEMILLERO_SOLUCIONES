@@ -1,98 +1,126 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Recopilacion Semillero</title>
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-        
+    <title>Banco de errores semillero 2023</title> 
+    <link id="theme" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
+    <link id="theme" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@5.2.3/dist/quartz/bootstrap.min.css">
+    <link id="theme" rel="stylesheet" href="https://bootswatch.com/5/quartz/bootstrap.css">
+    <link id="theme" rel="stylesheet" href="https://bootswatch.com/5/quartz/bootstrap.min.css">
+    <link id="theme" rel="stylesheet" href="https://bootswatch.com/5/quartz/_bootswatch.scss">
+    <link id="theme" rel="stylesheet" href="https://bootswatch.com/5/quartz/_variables.scss">
+
+
     </head>
-    <body class=" bg-dark text-white">
-    <!--------CUERPO DE LA PAGINA-------->    
-    <div class="container text-center">
-        <h1 class="display-1">Documentacion de soluciones</h1>
-    </div>
 
-    <div class="container bg-dark text-white">
-        <!------------Pestanias de navegacion------------->
-        <ul class="nav nav-tabs bg-dark justify-content-center nav-fill" id="myTab" role="tablist">
-            <li class="nav-item" role="presentation">
-              <button class="nav-link active text-secondary" id="home-tab" data-bs-toggle="tab" data-bs-target="#documentacion" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">Documentacion</button>
-            </li>
-            <li class="nav-item" role="presentation">
-              <button class="nav-link text-secondary" id="profile-tab" data-bs-toggle="tab" data-bs-target="#formulario" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false">Sube tu solucion</button>
-            </li>
-        </ul>
-        
-        <div class="tab-content" id="myTabContent">
-            <!------------------Documentacion------------------->
-            <div class="tab-pane fade show active" id="documentacion" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
-        
-            <!--------------Listado de registros------------->
-
-            <div class="row row-cols-1" id = "Tarjeta-solucion">
-                
-           
-
-            </div> 
-
-            </div>
-
-            <!------------------Fromulario------------------->
-            <div class="tab-pane fade" id="formulario" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
+    <body>
+        <!--------------------------------Cuerpo principal ----------------------------------->
+        <div class="container">
+            <!---------------------------------------------------------------------------->
+            <!--------------------------Pestanias incio----------------------------------->
+            <!---------------------------------------------------------------------------->
+                <ul class="nav nav-tabs justify-content-center nav-fill" role="tablist">
+                    <li class="nav-item" role="presentation">
+                      <a class="nav-link active" data-bs-toggle="tab" href="#Pestania_Documentacion"  role="tab" tabindex="-1">Documentacion</a>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                      <a class="nav-link" data-bs-toggle="tab" href="#Pestania_Formulario" role="tab">Formulario</a>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <a class="nav-link" data-bs-toggle="tab" href="#Pestania_CargaMasiva" role="tab">Carga Masiva</a>
+                    </li>
+                </ul>
              
-                <form >
-                    <div class="mb-3">
+            <!---------------------------------------------------------------------------->
+            <!----------------------Contenedores de pestanias----------------------------->
+            <!---------------------------------------------------------------------------->    
+                <div id="myTabContent" class="tab-content">
+                    <!---------Cada pestania va a tener su propio comtenedor-------------->
+                    <!----------------------Pestania documetacion------------------------->
+                    <div class="tab-pane fade show active" id="Pestania_Documentacion" role="tabpanel">
+                        <!------------------------Separadores para que quede bonito------------------>
+                        <p></p>
+                        <p></p>
+                        <p></p>
+                        <p></p>
+                        <p></p>
 
-                      <label for="nombre-del-error" class="form-label">Indicar el nombre del error</label>
-                      <input type="text" class="form-control" id="nombre-del-error">
+                        <div class="container">
+                                               
+                                <!--------------Listado de registros------------->
+                    
+                                <div class="row row-cols-1" id = "Tarjeta-solucion">
+                                                                                 
+                
+                                </div>
 
-                      <label for="numero-del-error" class="form-label">Indica el numero del error</label>
-                      <input type="text" class="form-control" id="numero-del-error">
 
-                      <label for="complejidad-del-error" class="form-label">Nivel de complejidad (1 menos, 5 mas)</label>
+                        </div>
+                        
+                        
+                    </div>
+                    <!----------------------Pestania formulario--------------------------->
+                    <div class="tab-pane fade " id="Pestania_Formulario" role="tabpanel">
 
-                      <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" id="complejidad-del-error">
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                      </select>
+                        <div class="container">
 
-                      <label for="usuario-del-error" class="form-label">Usuario que lo reporta</label>
-                      <input type="text" class="form-control" id="usuario-del-error">
+                            
+                            <form >
+                                <div class="mb-3">
+            
+                                  <label for="nombre-del-error" class="form-label mt-3">Indicar el nombre del error</label>
+                                  <input type="text" class="form-control" id="nombre-del-error">
+            
+                                  <label for="numero-del-error" class="form-label mt-3">Indica el numero del error</label>
+                                  <input type="text" class="form-control" id="numero-del-error">
+            
+                                  <label for="complejidad-del-error" class="form-label mt-3">Nivel de complejidad (1 menos, 5 mas)</label>
+                                  <input type="range" class="form-range" min="0" max="5" id="complejidad-del-error">
+            
+                                  <label for="usuario-del-error" class="form-label mt-3">Usuario que lo reporta</label>
+                                  <input type="text" class="form-control" id="usuario-del-error">
+            
+                                  <label for="fecha-del-error" class="form-label mt-3">Fecha del error</label>
+                                  <input type="date" class="form-control" id="fecha-del-error">
+            
+                                  <label for="resultado-esperado-del-error" class="form-label mt-3">Indica el resultado esperado</label>
+                                  <input type="text" class="form-control" id="resultado-esperado-del-error">
+            
+                                  <label for="resultado-obtenido-del-error" class="form-label mt-3">Indica el resultado obtenido</label>
+                                  <input type="text" class="form-control" id="resultado-obtenido-del-error" >
 
-                      <label for="fecha-del-error" class="form-label">Fecha del error</label>
-                      <input type="date" class="form-control" id="fecha-del-error">
+                                  <label for="descripcion-del-error" class="form-label mt-3">Describir el error</label>
+                                  <textarea class="form-control" id="descripcion-del-error" rows="3" placeholder="Indique la descripcion del error"></textarea>
+            
+                                  <label for="solucion-del-error" class="form-label mt-3">Indicar la solucion del error</label>
+                                  <textarea class="form-control" id="solucion-del-error" rows="3" placeholder="Indique la solucion utilizada"></textarea>
+            
+                                  <label for="fuentes-del-error" class="form-label mt-3">Fuentes de consulta</label>
+                                  <input type="text" class="form-control" id="fuentes-del-error" >
+            
+                                </div>
+                                <button type="button" class="btn btn-light" id="Formulario">Subir mi solucion</button>
+                            </form>
 
-                      <label for="resultado-esperado-del-error" class="form-label">Indica el resultado esperado</label>
-                      <input type="text" class="form-control" id="resultado-esperado-del-error">
 
-                      <label for="resultado-obtenido-del-error" class="form-label">Indica el resultado obtenido</label>
-                      <input type="text" class="form-control" id="resultado-obtenido-del-error">
+                        </div>     
+                        
+                    </div>
 
-                      <label for="descripcion-del-error" class="form-label">Describir el error</label>
-                      <input type="text-field" class="form-control" id="descripcion-del-error" >  
+                     <!--------------------Pestania carga masiva--------------------------->
+                    <div class="tab-pane fade" id="CargaMasiva" role="tabpanel">
+                     
+                        <div class="container">
 
-                      <label for="solucion-del-error" class="form-label">Indicar la solucion</label>
-                      <input type="text-field" class="form-control" id="solucion-del-error" >
 
-                      <label for="fuentes-del-error" class="form-label">Fuentes de consulta</label>
-                      <input type="text" class="form-control" id="fuentes-del-error" >
+                        </div>
 
                     </div>
-                    <button type="submit" class="btn btn-light" id="Formulario">Subir mi solucion</button>
-                </form>
+                </div>
 
-            </div>
         </div>
 
-
-
-    </div>    
-       
-        <!--JS-->  
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
-        <script src="Js/script.js"></script>
-        <script src="Js/Object.js"></script>
+        <script src="Js/Script.js"></script>
+        <script src="Js/ArrayObjects.js"></script>
     </body>
 </html>

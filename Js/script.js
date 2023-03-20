@@ -1,7 +1,11 @@
 //Aceptar el formulario
-document.querySelector('#Formulario').addEventListener('click',GuardarSolucion);
+document.querySelector('#Formulario').addEventListener('click',GuardarSolucion,(event)=>{
+    event.preventDefault();
+});
 //Enviar a crear los datos
 function GuardarSolucion (){
+
+    console.log("Hola");
 
     //Acepta los valores escritos en los campos
     var nombre = document.querySelector("#nombre-del-error").value,
@@ -31,30 +35,22 @@ function MostrarSoluciones () {
     ListadoSoluciones2.map((x) => {
         //Se inserta HTML, se deera usar comillas invertidas
         TarjetaSolucion.innerHTML += `
-        <div class="card text-bg-dark border-light mb-3">
+      
+      <div class="card border-secondary mb-3" header bg-secondary>
+        <div class="card-header bg-secondary">
+        <h5 class="card-title">${x.nombre}</h5> 
+        </div>
         <div class="card-body">
-          <h1>Nombre del error: ${x.nombre}</h1>
-          <h5 class="card-title">Codigo del error: ${x.numero}</h5>
-          <p class="card-text">Nivel de complejidad: ${x.complejidad}</p>
-          <p class="card-text">Usuario que lo reporto: ${x.usuario}</p>
-          <p class="card-text">Fecha del error: ${x.fecha_reporte}</p>
-          <h5 class="card-text">Resultado esperado</h5>
-          <p class="card-text"></p>
-          <p class="card-text">${x.resultado_esperado}</p>
-          <h5 class="card-text">Resultado obtenido</h5>
-          <p class="card-text"></p>
-          <p class="card-text">${x.resultado_obtenido}</p>
-          <h5 class="card-text">Solucion utilizada</h5>
-          <p class="card-text"></p>
-          <p class="card-text">${x.solucion}</p>
-          <h5 class="card-text">Fuentes</h5>
-          <p class="card-text"></p>
-          <p class="card-text">${x.fuentes}</p>
-          <p class="card-text">A ${x.utilidad} personas les ha sido util </p>
+            <h5 class="card-title">Codigo del error: ${x.numero}</h5>
+            <p class="card-text">Nivel de complejidad: ${x.complejidad}</p>
+            <h5 class="card-title">Descripcion del error:</h5>
+            <p class="card-text">Nivel de complejidad: ${x.descripcion}</p>
         </div>
         <img src="..." class="card-img-bottom" alt="${x.numero}">
       </div>
-        `;
 
+        `;
+      console.log(ListadoSoluciones2);
     })
+
 }
