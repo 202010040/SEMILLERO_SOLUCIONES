@@ -10,6 +10,7 @@ function GuardarSolucion (){
     //Acepta los valores escritos en los campos
     var nombre = document.querySelector("#nombre-del-error").value,
         numero = document.querySelector("#numero-del-error").value,
+        id = document.querySelector("#ID-del-error").value,
         complejidad = document.querySelector("#complejidad-del-error").value,
         usuario = document.querySelector("#usuario-del-error").value,
         fecha = document.querySelector("#fecha-del-error").value,
@@ -19,7 +20,7 @@ function GuardarSolucion (){
         solucion = document.querySelector("#solucion-del-error").value,
         fuentes = document.querySelector("#fuentes-del-error").value;
     //Manda a crear un nuevo objeto, llamando a la funcion en el otro Js
-    AgregarRegistro(nombre,numero,complejidad,usuario,fecha,esperado,obtenido,descripcion,solucion,fuentes);
+    AgregarRegistro(nombre,numero,id,complejidad,usuario,fecha,esperado,obtenido,descripcion,solucion,fuentes);
     MostrarSoluciones();
 }
 
@@ -38,15 +39,15 @@ function MostrarSoluciones () {
       
       <div class="card border-secondary mb-3" header bg-secondary>
         <div class="card-header bg-secondary">
-        <h5 class="card-title">${x.nombre}</h5> 
+        <h5 class="card-title">${x["ID del mensaje de error "]}</h5> 
         </div>
         <div class="card-body">
-            <h5 class="card-title">Codigo del error: ${x.numero}</h5>
-            <p class="card-text">Nivel de complejidad: ${x.complejidad}</p>
+            <h5 class="card-title">Codigo del error: ${x["Nombre del error "]}</h5>
+            <p class="card-text">Nivel de complejidad: ${x["Complejidad"]}</p>
             <h5 class="card-title">Descripcion del error:</h5>
-            <p class="card-text">Nivel de complejidad: ${x.descripcion}</p>
+            <p class="card-text">Reportado por: ${x["Reportado por"]}</p>
         </div>
-        <img src="..." class="card-img-bottom" alt="${x.numero}">
+        <img src="..." class="card-img-bottom" alt="${x["Nombre del error "]}">
       </div>
 
         `;
