@@ -1,15 +1,46 @@
+//Boton para ver si es un Abend o un File Status, activandose o desactivandose dependiendo del caso
+document.querySelector('#FileStatus').addEventListener('click',EncenderFileStatus,(event)=>{
+    event.preventDefault();
+});
+document.querySelector('#Abend').addEventListener('click',EncenderAbend,(event)=>{
+    event.preventDefault();
+});
+var FileStatus = document.getElementById('numero-del-error-FS');
+var Abend = document.getElementById('numero-del-error-AB');
+//Activa o desactiva los campos dependiendo de que boton está seleccionado
+function EncenderFileStatus (){    
+    if (FileStatus.disabled){
+        FileStatus.disabled = false;
+        Abend.disabled = true;
+        Abend.value = null;
+    }
+}
+function EncenderAbend (){
+    if (Abend.disabled){
+        FileStatus.disabled = true;
+        Abend.disabled = false;
+        FileStatus.value = null;
+    }
+}
+
+
+
 //Aceptar el formulario
 document.querySelector('#Formulario').addEventListener('click',GuardarSolucion,(event)=>{
     event.preventDefault();
 });
 //Enviar a crear los datos
 function GuardarSolucion (){
-
-    console.log("Hola");
-
+    //Valida si se ha ingresado un ABEND o un FILESTATUS
+    if (FileStatus.value.toString().length > 0 ){
+         var CodigoError = "File Status " + FileStatus.value.toString();
+    } 
+    else if (Abend.value.toString().length > 0 ){
+         var CodigoError = "Abend " + Abend.value.toString();
+    }
     //Acepta los valores escritos en los campos
     var nombre = document.querySelector("#nombre-del-error").value,
-        numero = document.querySelector("#numero-del-error").value,
+        numero = CodigoError,
         id = document.querySelector("#ID-del-error").value,
         complejidad = document.querySelector("#complejidad-del-error").value,
         usuario = document.querySelector("#usuario-del-error").value,
@@ -21,7 +52,10 @@ function GuardarSolucion (){
         fuentes = document.querySelector("#fuentes-del-error").value;
     //Manda a crear un nuevo objeto, llamando a la funcion en el otro Js
     AgregarRegistro(nombre,numero,id,complejidad,usuario,fecha,esperado,obtenido,descripcion,solucion,fuentes);
+    //Agrega las pestañas
     MostrarSoluciones();
+    //Ventana emergente
+    swal("EXITO!", "Se ha cargado el nuevo registro en la biblioteca, muchas gracias por tu aporte :D", "");
 }
 
 //Imprimir el contenido de datos
@@ -39,19 +73,18 @@ function MostrarSoluciones () {
       
       <div class="card border-secondary mb-3" header bg-secondary>
         <div class="card-header bg-secondary">
-        <h5 class="card-title">${x["ID del mensaje de error "]}</h5> 
+        <h5 class="card-title">${x["ID del mensaje de error"]} ${x["Nombre del error"]}</h5> 
         </div>
         <div class="card-body">
-            <h5 class="card-title">Codigo del error: ${x["Nombre del error "]}</h5>
+            <h5 class="card-title">Codigo del error: ${x["Codigo de retorno"]}</h5>
             <p class="card-text">Nivel de complejidad: ${x["Complejidad"]}</p>
-            <h5 class="card-title">Descripcion del error:</h5>
+            <h5 class="card-title">Descripcion del error: ${x["Descripcion del error"]}</h5>
             <p class="card-text">Reportado por: ${x["Reportado por"]}</p>
         </div>
-        <img src="..." class="card-img-bottom" alt="${x["Nombre del error "]}">
+        <img src="..." class="card-img-bottom" alt="${x["Nombre del error"]}">
       </div>
 
         `;
       console.log(ListadoSoluciones2);
     })
-
 }

@@ -1,3 +1,4 @@
+//Arreglo general de elementos
 var ListadoSoluciones = [];
 //Funcion agregar registros, sera llamada desde el script principal
 function AgregarRegistro (e_nombre,e_numero,e_ID,e_complejidad,
@@ -6,17 +7,18 @@ function AgregarRegistro (e_nombre,e_numero,e_ID,e_complejidad,
     console.log(ListadoSoluciones);    
     //Se crea un objeto json para guardar el registro nuevo
     var SolucionNueva = {
-        "Nombre del error " : e_nombre,
-        "Codigo de retorno" : e_numero,
-        "ID del mensaje de error " : e_ID,
-        "Complejidad": e_complejidad,
-        "Reportado por" : e_usuario,
-        "Dia del reporter" : e_fecha.toString(),
-        "Resultado esperado" : e_esperado,
-        "Resultado obtenido" : e_obtenido,
-        "Descripción del error" : e_descripcion,
-        "Solución implementada" : e_solucion,
-        "Fuentes de consulta" : e_fuentes
+        "Nombre del error" : e_nombre.toString(),
+        "Codigo de retorno" : e_numero.toString(),
+        "ID del mensaje de error" : e_ID.toString(),
+        "Complejidad": e_complejidad.toString(),
+        "Reportado por" : e_usuario.toString(),
+        "Dia del reporte" : e_fecha.toString(),
+        "Resultado esperado" : e_esperado.toString(),
+        "Resultado obtenido" : e_obtenido.toString(),
+        "Descripcion del error" : e_descripcion.toString(),
+        "Solucion implementada" : e_solucion.toString(),
+        "Fuentes de consulta" : e_fuentes,
+        "utilidad" : 0
     };
     //El registro se agrega al arreglo de soluciones
     ListadoSoluciones.push(SolucionNueva);
